@@ -11,7 +11,7 @@ export const onUserSignup = inngest.createFunction(
       const {email} = event.data //However envoking the event passed some data so we get email from it
       //Run Step Function to find the user in database
       const user = await step.run("get-user-email",async()=>{
-          const userObject = await User.findOne({email})
+        const userObject = await User.findOne({email})
           if (!userObject) {
             throw new NonRetriableError("User no longer exist in database")  //No Try Again
           }
