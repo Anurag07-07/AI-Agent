@@ -7,5 +7,3 @@ export const inngest = new Inngest({
   name: "Myapp", 
   eventKey: process.env.INNGEST_EVENT_KEY 
 });
-
-console.log("INNGEST_EVENT_KEY:", `${process.env.INNGEST_EVENT_KEY}`);
