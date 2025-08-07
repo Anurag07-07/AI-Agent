@@ -16,14 +16,6 @@ app.use(express.json())
 app.use('/api/auth',userRoute)
 app.use('/api/tickets',ticketRoutes)
 
-////Inngest Route Working Middleware
-app.use(
-  "api/inngest",
-  serve({
-    client:inngest,
-    functions:[onUserSignup,onTicketCreated]
-  })
-)
 
 //Cors
 app.use(cors())
@@ -34,6 +26,15 @@ dbConnect()
 
 //PORT
 const PORT = process.env.PORT || 3000
+
+////Inngest Route Working Middleware
+app.use(
+  "/api/inngest",
+  serve({
+    client:inngest,
+    functions:[onUserSignup,onTicketCreated]
+  })
+)
 
 //Server Listen
 app.listen(PORT,()=>{

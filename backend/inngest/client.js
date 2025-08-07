@@ -1,5 +1,11 @@
-import {Inngest} from 'inngest'
+import dotenv from 'dotenv';
+dotenv.config(); 
+import { Inngest } from 'inngest';
 
-export const inngest = new Inngest({id:"ticketing-system",name:"Myapp",eventKey:process.env.INNGEST_EVENT_KEY,})
-//All the function keep togeather under this "ticketing-system" banner
+export const inngest = new Inngest({ 
+  id: "ticketing-system", 
+  name: "Myapp", 
+  eventKey: process.env.INNGEST_EVENT_KEY 
+});
 
+console.log("INNGEST_EVENT_KEY:", `${process.env.INNGEST_EVENT_KEY}`);
