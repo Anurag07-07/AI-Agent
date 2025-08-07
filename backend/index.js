@@ -13,8 +13,8 @@ const app = express()
 
 //Body Parser
 app.use(express.json())
-app.use('api/auth',userRoute)
-app.use('api/tickets',ticketRoutes)
+app.use('/api/auth',userRoute)
+app.use('/api/tickets',ticketRoutes)
 
 ////Inngest Route Working Middleware
 app.use(
