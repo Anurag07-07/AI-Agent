@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
 import dbConnect from './dbConnect.js';
 import User from '../models/user.js'; // path to your User model
 import dotenv from 'dotenv'
