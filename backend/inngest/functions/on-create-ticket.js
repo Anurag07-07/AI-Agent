@@ -4,8 +4,8 @@ import { inngest } from "../client.js";
 import analyzeTicket from "../../utils/ai.js";
 import User from "../../models/user.js";
 import { sendMail } from "../../utils/mailer.js";
-import { err } from "inngest/types";
 
+//When Ticket is created
 export const onTicketCreated = inngest.createFunction(
   {id:"on-ticket-create",retries:2},
   {event:'ticket/created'},async({event,step})=>{
