@@ -106,10 +106,13 @@ export const Logout = async (req, res) => {
 };
 
 
+//Update the User 
 export const updateUser = async (req, res) => {
   const { skills = [], role, email } = req.body;
 
   try {
+    //Only change if the user is admin or not
+    //as admin only update the user data 
     if (req.user?.role !== "admin") {
       return res.status(403).json({ error: "Forbidden" });
     }
