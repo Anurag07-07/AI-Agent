@@ -40,6 +40,7 @@ export const Signin = async(req,res)=>{
   const {email,password} = req.body
   
   try {
+    //Check if user is present or not
      const user =  await User.findOne({email}).select('+password')
     if (!user) {
       return res.status(404).json({
@@ -47,14 +48,17 @@ export const Signin = async(req,res)=>{
       })
     }
 
+    //Validate the password
     const isMatch = await bcrypt.compare(password,user.password)
 
+    //If password Not Match
     if (!isMatch) {
       return res.status(401).json({
         message:`Invalid Credentials`
       })
     }
 
+    //Generaet The Token
      const token = jwt.sign({
       _id:user._id,role:user.role
     },process.env.JWT_SECRET)
